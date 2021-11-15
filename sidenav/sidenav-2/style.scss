@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body{
+  position: relative;
+  min-width: 100vh;
+  width:100%;
+  overflow:hidden;
+
+  .sidebar{
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 68px;
+    background: #11101d;
+    padding: 6px 14px;
+    transition: all 0.4s ease;
+    .logo_content{
+      .logo{
+        color:#fff;
+        display: flex;
+        height: 50px;
+        width: 100%;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none ;
+
+        ion-icon{
+          font-size: 28px;
+          margin-right: 5px;
+        }
+        .logo_name{
+          font-size: 20px;
+          font-weight: 400;
+        }
+      }
+
+      .btn{
+        color: #fff;
+        position: absolute;
+        left: 50%;
+        top: 6px;
+        font-size: 20px;
+        line-height: 50px;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        transform: translateX(-50%);
+      }
+    }
+
+    ul{
+      margin-top:20px;
+
+      li{
+        position: relative;
+        height: 50px;
+        width: 100%;
+        margin: 0 5px;
+        list-style: none;
+        line-height: 50px;
+
+        .search_logo{
+          position: absolute;
+          z-index: 99;
+          color: #fff;
+          font-size: 22px;
+          top: 5px;
+          left: 10px;
+          transition: all 0.5s ease;
+
+          &:hover{
+            background: #fff;
+            color: #1d1b31;
+          }
+        }
+        input{
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          top: 0;
+          border-radius: 12px;
+          outline: none;
+          border:none;
+          background: #1d1b31;
+          padding-left: 40px;
+          color: #fff;
+          font-size: 18px;
+        }
+
+        a{
+          color: #fff;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          transition: all 0.4s ease;
+          border-radius: 12px;
+          white-space: nowrap;
+         
+          &:hover{
+            color: #11101d;
+            background: #fff;
+            border-radius: 12px;
+          }
+
+          .links_name{
+            opacity: 0;
+            pointer-events: none;
+          }
+
+          ion-icon{
+            height: 20px;
+            min-width: 50px;
+            border-radius: 12px;
+            line-height: 50px;
+            text-align: center;
+          }
+        }
+
+        .tooltip{
+          position: absolute;
+          height: 35px;
+          width: 122px;
+          background: #fff;
+          box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+          left:122px;
+          top:0;
+          transform: translate(-50%,-50%);
+          border-radius: 12px;
+          line-height: 35px;
+          transition: 0s;
+          opacity: 0;
+          pointer-events: none;
+          display: block;
+
+        }
+
+        &:hover .tooltip{
+          top: 50%;
+          transition: all 0.5s ease;
+          opacity: 1;
+
+        }
+      }
+    }
+
+
+    .profile_content{
+      position: absolute;
+      color: #fff;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+
+
+      .profile{
+        position: relative;
+        padding: 10px 6px;
+        height: 60px;
+        background: #1d1b31;
+
+        .profile_details{
+          display: flex;
+          align-items: center;
+          opacity: 0;
+          pointer-events: none;
+          white-space: nowrap;
+
+          img{
+            height: 45px;
+            width: 45px;
+            object-fit: cover;
+            border-radius: 12px;
+          }
+
+          .name_job{
+            margin-left: 10px;
+            
+            .name{
+              font-size: 15px;
+              font-weight: 400;
+            }
+            .job{
+              font-size: 12px;
+            }
+          }
+
+        }
+        .logout{
+          position: absolute;
+          left: 100%;
+          bottom:3px;
+          transform: translateX(-50px);
+          min-width: 50px;
+          height: 50px;
+          line-height: 50px;
+          border-radius: 12px;
+          font-size: 20px;
+        }
+      }
+    }
+
+  }
+
+  .sidebar.active{
+    width: 240px;
+    ul{
+      li{
+        .tooltip{
+          display: none;
+        }
+
+        a{
+          .links_name{
+            opacity: 1;
+            pointer-events: auto;
+          }
+        }
+      }
+    }
+    .logo_content{
+      .logo{
+        opacity: 1;
+      }
+
+      .btn{
+        left: 90%;
+      }
+    }
+    .profile{
+      .profile_details{
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+
+  }
+
+  .content{
+    position: absolute;
+    height: 100%;
+    width: calc(100%-240px);
+    left: 240px;
+
+    .text{
+      font-size: 25px;
+      font-weight: 500;
+      color:#1d1b31;
+      margin: 12px;
+    }
+  }
+}
